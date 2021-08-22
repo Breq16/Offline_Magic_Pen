@@ -18,7 +18,7 @@ import foxsylv.bwa.BWABoard.AttackDmgs;
  * @author FoxSylv
  */
 public class BWACommandHandler {
-	private static final String VERSION_NUM = "1.0.1";
+	private static final String VERSION_NUM = "1.0.2";
 	
 	private static BWA1Board bwa1board = new BWA1Board();
 	private static boolean bwa1boardInitialized = false;
@@ -673,6 +673,14 @@ public class BWACommandHandler {
 				@Override
 				public String call(String[] params) {
 					return "Version: " + VERSION_NUM;
+				} //end call()
+			}, //end version Command
+			
+			new Command("github", "", "Displays the github link for this program", true,
+					"Displays the github link for this program.") {
+				@Override
+				public String call(String[] params) {
+					return "github.com/FoxSylv/Offline_Magic_Pen";
 				} //end call()
 			}, //end version Command
 			

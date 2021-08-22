@@ -13,7 +13,7 @@ import java.io.IOException;
 public class BWAConsoleUI {
 	public static void main(String[] args) throws IOException {
 		if (args.length == 0) {
-			Runtime.getRuntime().exec(new String[]{"cmd","/c","start","cmd","/k","java -jar \"Offline_Pen.jar\" -dontspam"});
+			Runtime.getRuntime().exec(new String[]{"cmd","/c","start","cmd","/k","java -jar \"Offline_Pen.jar\" Thanks for playing!"});
 		}
 		Scanner scanner = new Scanner(System.in);
 		
