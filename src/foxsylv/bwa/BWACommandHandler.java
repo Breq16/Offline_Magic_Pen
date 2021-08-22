@@ -18,7 +18,7 @@ import foxsylv.bwa.BWABoard.AttackDmgs;
  * @author FoxSylv
  */
 public class BWACommandHandler {
-	private static final String VERSION_NUM = "1.0.0";
+	private static final String VERSION_NUM = "1.0.1";
 	
 	private static BWA1Board bwa1board = new BWA1Board();
 	private static boolean bwa1boardInitialized = false;
