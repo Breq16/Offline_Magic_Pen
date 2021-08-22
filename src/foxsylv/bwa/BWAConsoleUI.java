@@ -2,6 +2,7 @@ package foxsylv.bwa;
 
 import java.util.Arrays;
 import java.util.Scanner;
+import java.io.IOException;
 
 /**
  * An implementation of the Bookworm Magic Pen commands
@@ -10,7 +11,10 @@ import java.util.Scanner;
  * @author FoxSylv
  */
 public class BWAConsoleUI {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		if (args.length == 0) {
+			Runtime.getRuntime().exec(new String[]{"cmd","/c","start","cmd","/k","java -jar \"Offline_Pen.jar\" -dontspam"});
+		}
 		Scanner scanner = new Scanner(System.in);
 		
 		System.out.println("Welcome to FoxSylv's offline Magic Pen trainer! ^w^");
