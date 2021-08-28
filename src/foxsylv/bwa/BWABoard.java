@@ -30,7 +30,7 @@ import foxsylv.lexicon.LexiconTrie;
  */
 public abstract class BWABoard {	
 	private Random randomizer = new Random();
-	private String[] board = new String[boardWidth() * boardHeight()];
+	private String[] board;
 	
 	/**
 	 * Returns the board width
@@ -169,13 +169,14 @@ public abstract class BWABoard {
 		
 		//Randomly place the guaranteed letters
 		boolean[] locationsUsed = new boolean[boardWidth() * boardHeight()];
-		for (int i = 0; i < Math.min(boardWidth() * boardHeight(), tiles.length()); ++i) {
-			int loc = randomizer.nextInt(16);
+		String upperTiles = tiles.toUpperCase();
+		for (int i = 0; i < Math.min(boardWidth() * boardHeight(), upperTiles.length()); ++i) {
+			int loc = randomizer.nextInt(boardWidth() * boardHeight());
 			while (locationsUsed[loc]) {
 				loc = (loc + 1) % (boardWidth() * boardHeight());
 			}
 			locationsUsed[loc] = true;
-			board[loc] = tiles.substring(i, i + 1);
+			board[loc] = upperTiles.substring(i, i + 1);
 		}
 	} //end randomizeBoard()
 	
@@ -293,4 +294,14 @@ public abstract class BWABoard {
 		sb.delete(sb.length() - 1, sb.length());
 		return sb.toString();
 	} //end toString()
+	
+	
+	
+	
+	/**
+	 * Constructor; Initializes the board size
+	 */
+	public BWABoard(int size) {
+		board = new String[size];
+	} //end BWABoard()
 } //end BWABoard

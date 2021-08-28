@@ -13,8 +13,8 @@ import org.json.simple.JSONObject;
  * @author FoxSylv
  */
 public class BWA1Board extends BWABoard {
-	private static final int BOARD_WIDTH = 4;
-	private static final int BOARD_HEIGHT = 4;
+	private int width, height;
+	private static final int DEFAULT_WIDTH = 4, DEFAULT_HEIGHT = 4;
 	
 	private static final LexiconTrie DICTIONARY = new LexiconTrie("BWA1_Dictionary.txt");
 	private static final LexiconTrie METAL_DICTIONARY = new LexiconTrie("BWA1_MetalDictionary.txt");
@@ -29,7 +29,7 @@ public class BWA1Board extends BWABoard {
 	 */
 	@Override
 	public int boardWidth() {
-		return BOARD_WIDTH;
+		return width;
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class BWA1Board extends BWABoard {
 	 */
 	@Override
 	public int boardHeight() {
-		return BOARD_HEIGHT;
+		return height;
 	}
 	
 	
@@ -157,5 +157,26 @@ public class BWA1Board extends BWABoard {
 	 */
 	public AttackDmgs attackPower(String word) {
 		return attackPower(word, 2, 1, 1, 0, 0, 0, 0);
-	}
+	} //end attackPower()
+	
+	
+	
+	/**
+	 * Constructor for an arbitrary-sized board
+	 * 
+	 * @param width Board width
+	 * @param height Board height
+	 */
+	public BWA1Board(int width, int height) {
+		super(width * height);
+		this.width = width;
+		this.height = height;
+	} //end Bwa1Board()
+	
+	/**
+	 * Default constructor for a 4x4 board
+	 */
+	public BWA1Board() {
+		this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+	} //end BWA1Board()
 } //end BWA1Board
