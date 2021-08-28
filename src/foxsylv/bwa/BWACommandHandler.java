@@ -18,7 +18,7 @@ import foxsylv.bwa.BWABoard.AttackDmgs;
  * @author FoxSylv
  */
 public class BWACommandHandler {
-	private static final String VERSION_NUM = "1.1.0";
+	private static final String VERSION_NUM = "1.1.1";
 	
 	private static BWA1Board bwa1board = new BWA1Board();
 	private static boolean bwa1boardInitialized = false;
@@ -497,8 +497,8 @@ public class BWACommandHandler {
 				} //end call()
 			}, //end attack Command
 			
-			new Command("bestwords", "(letters)", "Finds the best words in the current rack", true,
-					"Lists the top " + Integer.toString(BEST_WORDS_DISPLAY_COUNT) + " words in a rack.\nIn the event of a tie in BH, alphabetical order is then used.") {
+			new Command("bestwords", "(letters)", "Finds the best words in the current rack, or the given letters if some are provided.", true,
+					"Lists the top " + Integer.toString(BEST_WORDS_DISPLAY_COUNT) + " words in the current rack or supplied letters.\nIn the event of a tie in BH, alphabetical order is then used.") {
 				@Override
 				public String call(String[] params) {
 					if (params.length == 0) {
